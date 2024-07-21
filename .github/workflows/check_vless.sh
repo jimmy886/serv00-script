@@ -110,6 +110,9 @@ check_vless_status() {
 # 检查是否有pm2 vless快照
 check_pm2_vless_snapshot() {
     if [[ -f ~/.pm2/dump.pm2 ]]; then
+
+
+    
         echo "检测到pm2 vless快照，正在恢复..."
         pm2 resurrect
         echo -e "${GREEN}pm2 vless快照已恢复。${NC}"
