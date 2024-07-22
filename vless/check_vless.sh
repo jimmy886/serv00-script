@@ -102,7 +102,7 @@ check_vless_status() {
         echo "vless进程正在运行。"
     else
         echo "vless进程未运行或已停止，正在重启..."
-        pm2 vless
+        pm2 start vless/check_vless
         echo -e "${GREEN}vless进程已重启。${NC}"
     fi
 }
@@ -110,8 +110,7 @@ check_vless_status() {
 check_pm2_vless_snapshot() {
     if [[ -f ~/.pm2/dump.pm2 ]]; then
         echo "检测到pm2 vless快照，正在恢复..."
-        
-        pm2 reset
+        pm2 resurrect
         echo -e "${GREEN}pm2 vless快照已恢复。${NC}"
         check_vless_status
     else
