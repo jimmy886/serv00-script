@@ -103,7 +103,7 @@ check_vless_status() {
     else
         echo "vless进程未运行或已停止，正在重启..."
         pm2 start vless/app.js --name vless
-        pm2 start app.js --name vlessh
+        pm2 start app.js --name vless
         echo -e "${GREEN}vless进程已重启。${NC}"
     fi
 }
